@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Full Stack Project</title>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/fullstack/style.css">
+
+</head>
+<style>
+    *{
+      box-sizing: border-box;
+  }
+  
+  body{
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      margin: 15px 30px;
+      font-size: 17px;
+      padding: 8px;
+     background-color:#5B5871;
+  
+  }
+  .gen{
+      background-color:white ;
+      margin-right: 800px;
+  }
+  
+  
+  .container{
+      background-color: #f2f2f2;
+      padding: 5px 20px 15px 20px;
+      border: 1px solid lightgray;
+      border-radius: 4px;
+  
+  }
+  input[type="text"],
+  input[type="mail"],
+  input[type="number"],
+  input[type="date"],
+  input[type="password"],
+  
+  select,
+  textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 10px;
+  }
+  fieldset{
+      background-color: azure;
+      border: 1px solid #ccc;
+  
+  }
+  .mainheading {
+      text-align: center;
+  }
+  input[type="submit"] {
+      background-color: #4dea;
+      color: rgb(63, 58, 58);
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+  
+  }
+  
+  
+  #submit{
+      background-color:#12292b;
+      color: #f75757;
+      width: 1150px;
+      text-align: center;
+      cursor:pointer;
+      border-radius: 8px;
+      border: 1.5px solid rgb(255, 196, 196);
+      padding: 1em 2em;
+      font-size: 1em;
+      transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  }    
+  
+  #submit:hover{
+      background-color: #193032;
+      border-color: #f75757;
+      color: rgb(248, 60, 60);
+      box-shadow: 0 0.5em 0.5em -0.4em #ff4220 ;
+      transform: translateY(-0.25em);
+      
+  }
+  
+  /* Navbar container */
+  .navbar {
+      display:inline-block full;
+      overflow: hidden;
+      background-color: rgba(212, 184, 184, 0.795);
+      font-family: Arial;
+      border-radius: 6px;
+      
+  }
+    
+    /* Links inside the navbar */
+      .navbar a {
+      float: left;
+      font-size: 16px;
+      color: rgb(66, 61, 61);
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      
+    }
+    
+    /* The dropdown container */
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+    
+    /* Dropdown button */
+    .dropdown .dropbtn {
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: rgb(39, 39, 39);
+      padding: 14px 16px;
+      background-color: inherit;
+      font-family: inherit; /* Important for vertical align on mobile phones */
+      margin: 0; /* Important for vertical align on mobile phones */
+    }
+    
+    /* Add a red background color to navbar links on hover */
+    .navbar a:hover, .dropdown:hover .dropbtn {
+      background-color: red;
+    }
+    
+    /* Dropdown content (hidden by default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+    
+    /* Add a grey background color to dropdown links on hover */
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+    
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  
+  footer{
+      margin-left: 30em;
+  }
+  
+  .img{
+      margin-left: 8em;
+      border-radius: 2em;
+      margin-top: 1em;
+      margin-bottom: 1em;
+  
+  }
+  .men{
+      background-image: url(https://thumbs.dreamstime.com/b/sport-fitness-lifestyle-people-concept-smiling-men-women-stretching-gym-sport-fitness-lifestyle-people-concept-147152548.jpg);
+      border-radius: 0.2em;
+      height: 20em;
+      width: 40em;
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+  }
+  
+  .men:hover{
+      background-image: url(https://thumbs.dreamstime.com/b/sport-fitness-lifestyle-people-concept-smiling-men-women-stretching-gym-sport-fitness-lifestyle-people-concept-147152548.jpg);
+      border-radius: 0.2em;
+      height: 20em;
+      width: 50em;
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      border-top-left-radius: 7em;
+      
+  }
+  
+  .yoga1{
+      background-image: url(https://d32ydbgkw6ghe6.cloudfront.net/production/uploads/cover_images/41c321f1c61c2542253bf58e3bb47fe55bbf/i1080x475.jpg);
+      border-radius: 0.2em;
+      margin-left: 10em;
+      height: 20em;
+      width: 50em;
+      text-align: center;
+      font-family: 'Pacifico', cursive;
+      margin-left:20em;
+  
+      
+  }
+  .yoga1:hover{
+      background-image: url(https://d32ydbgkw6ghe6.cloudfront.net/production/uploads/cover_images/41c321f1c61c2542253bf58e3bb47fe55bbf/i1080x475.jpg);
+      border-radius: 0.2em;
+      margin-left: 10em;
+      height: 20em;
+      width: 60em;
+      text-align: center;
+      font-family: 'Pacifico', cursive;
+      border-top-right-radius: 7em;
+  
+      
+  }
+  .zumba{
+      background-image: url(https://thebridge.in/wp-content/uploads/2020/07/Untitled-design-16.jpg);
+      border-radius: 0.2em;
+      height: 20em;
+      width: 50em;
+      text-align: center;
+      font-family:'Pacifico', cursive;
+  }
+  .zumba:hover{
+      background-image: url(https://thebridge.in/wp-content/uploads/2020/07/Untitled-design-16.jpg);
+      border-radius: 0.2em;
+      height: 20em;
+      width: 60em;
+      text-align: center;
+      font-family:'Pacifico', cursive;
+      border-top-left-radius: 7em;
+  }
+  .weight{
+      
+          background-image: url(https://vistapointe.net/images/weightlifting-wallpaper-3.jpg);
+          border-radius: 0.2em;
+          margin-left: 10em;
+          height: 30em;
+          width: 50em;
+          text-align: center;
+          font-family: 'Pacifico', cursive;
+      
+          
+      }
+      .weight:hover{
+      
+      background-image: url(https://vistapointe.net/images/weightlifting-wallpaper-3.jpg);
+      border-radius: 0.2em;
+      margin-left: 10em;
+      height: 30em;
+      width: 60em;
+      text-align: center;
+      font-family: 'Pacifico', cursive;
+      border-top-right-radius: 7em;
+  
+      
+  }
+  /* Three image containers (use 25% for four, and 50% for two, etc) */
+  .galimg {
+      float: left;
+      width: 33.33%;
+      padding: 5px;
+  
+    }
+    
+    /* Clear floats after image containers */
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+      
+    }
+    .gall{
+      text-align: center;
+      border-radius: 3px;
+      background-color: rgb(78, 244, 244);
+    }
+  
+    .imm:hover{
+      cursor: zoom-in;
+      transform: scale(1.5);
+      
+    }
+  </style>
+<header>
+   <nav><div class="navbar">
+            
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <div class="dropdown">
+            <button class="dropbtn">Facilities
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="index.html#unisex">Bodybuilding</a>
+                <a href="index.html#weight">Weight Lifting</a>
+                <a href="index.html#yoga">Yoga</a>
+                <a href="index.html#zumba">Zumba</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Locations
+            <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="https://www.google.com/search?rlz=1C1CHBF_enIN1017IN1017&tbs=lf:1,lf_ui:4&tbm=lcl&sxsrf=ALiCzsaD-Lcwe3t8dWAYwRSwFpuE26YO_Q:1667326731145&q=gold%27s+gym&rflfq=1&num=10&ved=2ahUKEwjJ8KKMzI37AhUeHbcAHUIVCykQtgN6BAgPEAE#rlfi=hd:;si:5133150050977748670,l,Cgpnb2xkJ3MgZ3ltIgOIAQFI1ZnA9veqgIAIWhQQABABGAAYASIKZ29sZCdzIGd5bZIBA2d5bZoBI0NoWkRTVWhOTUc5blMwVkpRMEZuU1VOemVVNTZVa1ozRUFFqgESEAEqDiIKZ29sZCdzIGd5bSgA;mv:[[31.699686399999997,76.8213062],[30.6270292,74.76079109999999]]">New Delhi</a>
+                <a href="https://www.google.com/maps/place/Gold's+Gym+Greater+Noida/@28.4760736,77.5204326,15z/data=!4m2!3m1!1s0x0:0x3bb76c204662c21a?sa=X&ved=2ahUKEwiVyvWyzI37AhVs7HMBHRPuDSAQ_BJ6BAhwEAU">Greater Noida</a>
+                <a href="https://www.google.com/maps/place/Gold's+Gym+Greater+Noida/@28.4760736,77.5204326,15z/data=!4m2!3m1!1s0x0:0x3bb76c204662c21a?sa=X&ved=2ahUKEwiVyvWyzI37AhVs7HMBHRPuDSAQ_BJ6BAhwEAU">Faridabad</a>
+                <a href="https://www.google.com/maps/place/Gold's+Gym+Greater+Noida/@28.4760736,77.5204326,15z/data=!4m2!3m1!1s0x0:0x3bb76c204662c21a?sa=X&ved=2ahUKEwiVyvWyzI37AhVs7HMBHRPuDSAQ_BJ6BAhwEAU">Gurugram</a>
+            </div>
+        
+        </div>
+        <a href="gallery.html">Gallary</a>
+        <div class="dropdown">
+            <button class="dropbtn">Contact Us
+            <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="https://mail.google.com/mail/u/0/#inbox?compose=new">&#9993; pulse8@gmail.com</a>
+                <a href="#">&#9990; +919876543210</a>
+                <a href="#">&#9990; +918893248384</a>
+                <a href="#">&#9990; +917894848934</a>
+              
+            </div>
+        </div>
+        
+        
+       </div>
+       </nav>
+    </header>
+    <body>
+       <img src="https://english.sakshi.com/sites/default/files/article_images/2019/10/19/1.jpg" alt="" width="900em" height="300em" class="img">
+       <br>
+      
+       <section id="unisex" class="men">
+      <h1>Unisex Gym</h1>
+       <h3>Best Environmental Gym for both men and womens </h3>
+       
+    </section>
+    <section id="yoga" class="yoga1">
+        <h1>Yoga</h1>
+    </section>
+    <section  id="zumba" class="zumba">
+        <h1>Zumba</h1>
+
+    </section>
+    <section id="weight" class="weight">
+        <h1>Weight Lifting</h1>
+
+    </section>
+    <br>
+    <h1 class="gall">Gallary</h1>
+    <div class="row">
+        <div class="galimg">
+          <img class="imm" src="https://pbs.twimg.com/media/ExdcpZDVoAU50KK.jpg?name=small" alt="Snow" height="300px" width="380px">
+        </div>
+        <div class="galimg">
+          <img class="imm" src="https://www.good-name.org/wp-content/uploads/2020/01/bigstock-group-of-young-people-running-85541696.jpg" alt="Forest" height="300px" width="380px">
+        </div>
+        <div class="galimg">
+          <img class="imm" src="https://1.bp.blogspot.com/-qwborJhijvY/Xtd5gIxEALI/AAAAAAAAGKg/pZiqOe0KEBgwiWuHhxIwotZZYzCRoSJfgCEwYBhgLKs4DAL1OcqzYJ97mt5w6bMZSwxkY5MGSnPcxlSYo9TnuwgnKYx1m0eYSzkzzuLpjBhOZ4T7r9p6zcpoe3P8Oce5DxcAJ93tCmx0biaqYArUiOULU6ZJOAQ0wlAavHy5Ae64fTHbTJtDbJDhc7VQRVbp6cdB3cxhwX3-nFyvT_h2QbkZR636zgF97bB8WCgJHJMYUoRhatXVpSS2GAP6EHzkjdQPKclyNv9kQfjp79suSgUoBT3kGHtLTaMbuDuXrtR_UMRGB9vKIy7oMNRR1d0bZcfUEKrLM7Ho9vYOPZFrTN35GeWXrS30QnKHpdiWgBqRXslUMlzGXl_xRwLv9R_YsGF8fGfvlRn0aMVez-54rALAHJZkmL9mF6cLEUofi4ILGw21tFQe0b1fAMC1_YzKECAiTXkIDGd5AgcGU0Yef_GKOKZ8CFpRFkZBw6WazbrdlWhB-c-GeltSjLC1ODOwrQ-6XUCV7inDHmzSf2_f2Ge4QnZEo9P87aDOiHbRYPZ-B6Z6jrQ_QTNbdUArOs-4cgILNxO3YMNyv3rZC-TWhdq35CYAD7-FIQAGnaIMMs_ZYPdq3hXddVXYg7JxFh5hvJMcEi9q_sM8rAVuegrAbMIH43fYF/s1600/IMG_20200603_152204.jpg" alt="Mountains" height="300px" width="380px">
+        </div>
+      </div>
+      <div class="row">
+        <div class="galimg">
+          <img class="imm" src="https://i.pinimg.com/736x/93/ee/f0/93eef07e497e18b33814da2a3927f59b.jpg" alt="Snow" height="300px" width="380px">
+        </div>
+        <div class="galimg">
+          <img class="imm" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z3ltfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="Forest" height="300px" width="380px">
+        </div>
+        <div class="galimg">
+          <img class="imm" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuFUVLPy9ZM2eP5CHh4wdxCDbV8Uga9ihbw8PaeBzABRgm7YEB-OFkfc4k_aRxM0NwFFo&usqp=CAU" alt="Mountains" height="300px" width="380px">
+        </div>
+      </div>
+   
+  <br>
+  <br><br>
+    <div class="container">
+    <form action="">
+    
+        <h1 class="mainheading">Membership Form</h1>
+        <h3> Required * </h3>
+
+<p>Name: * <input id="name" type="text" name="name" placeholder="Sandeep" ></p>
+<fieldset class="gen">
+    <legend class="gen1">Gender</legend>
+<p >
+    Male <input type="radio" name="gender" id="male">
+    Female <input type="radio" name="gender" id="female"></p>
+</fieldset> 
+<hr>
+    <p id="address">Address: * <textarea name="address" id="address" cols="100" rows="8" placeholder="Street 8, Sector 33,Greater Noida, UP"></textarea required></p>
+   <p>Contact No:* <input  id="contact" type="number" name="number"  maxlength="10" placeholder="+91987654321" ></p>
+        <p>Email: * <input  id="mail" type="email" name="email" class="mail" placeholder="skha123@gmail.com" ></p>
+<br>
+        <p id="pincode">Pincode: * <input type="number" name="pincode" id="pincode"  maxlength="6" placeholder="333242"></p>
+
+<br>
+<br>
+<p class="fees" >Pay Your Membership Fee Now</p>
+<p>
+    Membership Type*
+    <select name="membership" id="membership" >
+        <option value="">---Choose Type of Membership</option>
+        <option value="">Premium(14000/-per year)</option>
+        <option value="">Silver(13500/-per year)</option>
+        <option value="">Bronge(11000/-per year)</option>
+        <option value="">Zumba(9500/-per year)</option>
+        <option value="">Yoga(10000/-per year)</option>
+
+    </select>
+    <p>*Including all tax and charges</p>
+</p>
+<br>
+<p>Card Type: *
+    <select name="card_type" id="card_type" >
+        <option value="">--Select a Card Type--</option>
+        <option value="visa">Visa</option>
+        <option value="rupay">American Express</option>
+        <option value="mastercard">Master card</option>
+        <option value="rupay">Discover Network</option>
+    </select>
+</p>
+<p>
+    <img src="https://www.pngkit.com/png/detail/136-1367249_visa-mastercard-discover-png-visa-mastercard-american-express.png" height="50px" width="300px" alt="">
+    <br>
+    Amount * <input type="number" name="amount" id="amount" >
+    <br>
+    Card Number * <input type="number"  name="card_number" maxlength="16" id="card_number" >
+
+</p>
+<p>
+    Expiration Date * : <input type="date" name="exp_date" id="exp_date" >
+</p>
+<p>
+    CVV * <input type="password" name="cvv" id="cvv" maxlength="3" placeholder="3 digit no. behind card">
+
+</p>
+<input id="submit" value="Pay Now" class="button">
+
+</div>  
+</form>
+    
+</body>
+<br>
+<footer> &#169 All Copyrights Conserved 2022
+    <div></div>
+</footer>
+
+<script>
+    function ValidateEmail(mail) 
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value))
+  {
+    return (true)
+  }
+    alert("You have entered an invalid email address!")
+    return (false)
+}
+
+
+
+</script>
+<script>
+    $("#submit").click(function(){
+        var name = $("#name").val();
+        var mail = $("#mail").val();
+        var contact = $("#contact").val();
+
+        if(name ==''||mail==''||contact==''){
+        swal({
+            title:"Field Empty!",
+            text:"Please check the missing field!",
+            icon:"warning",
+            button:"ok",
+
+        });
+    } 
+    else{
+        swal({
+            title:"successfully submitted",
+            icon:"success",
+            button:"ok",
+        });
+    }
+});
+
+</script>
+</html>
